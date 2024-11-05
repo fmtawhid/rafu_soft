@@ -19,7 +19,8 @@ class Project(models.Model):
     client=models.ForeignKey(Client, on_delete=models.CASCADE) #connect to client
     details = models.TextField(blank=True, max_length=700)
     budget = models.IntegerField(blank=True)
-    start_time = models.DateTimeField(auto_now_add=True)
+    sub_total = models.IntegerField(blank=True)
+    start_time = models.DateTimeField(auto_now=True)
     end_time = models.DateTimeField(null=True)
     status = models.CharField(max_length=100, choices=[('Pending', 'Pending'), ('Completed', 'Completed'), ('Cancelled', 'Cancelled')])
     
