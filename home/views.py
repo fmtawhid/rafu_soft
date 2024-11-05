@@ -1,7 +1,7 @@
 from .models import Client
-from .serializers import ClientSerializer
+from .serializers import *
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
-
+# client view
 class ClientList(ListAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
@@ -21,6 +21,59 @@ class ClientUpdate(UpdateAPIView):
 class ClientDestroy(DestroyAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
+
+
+#For Project
+
+class ProjectList(ListAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class ProjectCreate(CreateAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class ProjectRetrieve(RetrieveAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class ProjectUpdate(UpdateAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class ProjectDestroy(DestroyAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+
+
+# for payment
+
+
+class PaymentList(ListAPIView):
+    queryset = Payment.objects.all()
+    serializer_class = PaymentSerializer
+
+class PaymentCreate(CreateAPIView):
+    queryset = Payment.objects.all()
+    serializer_class = PaymentSerializer
+
+class PaymentRetrieve(RetrieveAPIView):
+    queryset = Payment.objects.all()
+    serializer_class = PaymentSerializer
+
+class PaymentUpdate(UpdateAPIView):
+    queryset = Payment.objects.all()
+    serializer_class = PaymentSerializer
+
+class PaymentDestroy(DestroyAPIView):
+    queryset = Payment.objects.all()
+    serializer_class = PaymentSerializer
+
+
+
+
+
 
 
 

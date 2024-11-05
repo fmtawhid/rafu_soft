@@ -2,15 +2,21 @@
 #from rest_framework.parsers import JSONParser
 #from django.http import HttpResponse, JsonResponse
 from rest_framework import serializers
-from .models import Client
+from .models import *
 
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
-        fields = ['id', 'name', 'email', 'phone']
+        fields = '__all__'
 
-
-
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = '__all__'
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Payment
+        fields = '__all__'
 
 '''
     name = serializers.CharField(max_length=100)
