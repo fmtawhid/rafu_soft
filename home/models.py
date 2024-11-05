@@ -14,7 +14,7 @@ class Client(models.Model):
     password = models.CharField(max_length=50)
     def __str__(self):
         return self.cid
-    
+
 class Project(models.Model):
     name=models.CharField(max_length=300)
     client=models.ForeignKey(Client, on_delete=models.CASCADE) #connect to client
