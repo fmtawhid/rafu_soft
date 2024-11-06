@@ -1,12 +1,16 @@
-
+#from django.views.decorators.csrf import csrf_exempt
+#from rest_framework.parsers import JSONParser
+#from django.http import HttpResponse, JsonResponse
 from rest_framework import serializers
 from .models import *
 
 
 class PaymentSerializer(serializers.ModelSerializer):
+    payment_date = serializers.DateTimeField(format='%Y-%m-%d')
     class Meta:
         model = Payment
         fields = '__all__'
+
 
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,9 +18,16 @@ class ClientSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
+    
     financialRecords = PaymentSerializer(source='payment_set', many=True)
     class Meta:
         model = Project
+        fields = '__all__'
+
+class UserSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = userModels
         fields = '__all__'
 
 '''

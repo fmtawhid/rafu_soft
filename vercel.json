@@ -1,15 +1,18 @@
-
 {
     "builds": [
-      {
-        "src": "mcore/wsgi.py",
-        "use": "@vercel/python"
-      }
+        {
+            "src": "mcore/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "50mb",
+                "runtime": "python3.11"
+            }
+        }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "mcore/wsgi.py"
-      }
+        {
+            "src": "/(.*)",
+            "dest": "mcore/wsgi.py"
+        }
     ]
-  }
+}

@@ -1,4 +1,4 @@
-from .models import Client
+from .models import *
 from .serializers import *
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 # client view
@@ -69,6 +69,28 @@ class PaymentUpdate(UpdateAPIView):
 class PaymentDestroy(DestroyAPIView):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
+
+# user view
+
+class UserList(ListAPIView):
+    queryset = userModels.objects.all()
+    serializer_class = UserSerializer
+
+class UserCreate(CreateAPIView):
+    queryset = userModels.objects.all()
+    serializer_class = UserSerializer
+
+class UserRetrieve(RetrieveAPIView):
+    queryset = userModels.objects.all()
+    serializer_class = UserSerializer
+
+class UserUpdate(UpdateAPIView):
+    queryset = userModels.objects.all()
+    serializer_class = UserSerializer
+
+class UserDestroy(DestroyAPIView):
+    queryset = userModels.objects.all()
+    serializer_class = UserSerializer
 
 
 

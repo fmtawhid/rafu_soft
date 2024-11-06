@@ -4,6 +4,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# settings.py
+
+# Allow all origins
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -14,7 +18,7 @@ SECRET_KEY = 'django-insecure-+&(x8$wx6gjh@@*szm9%hf^re+lu)vza26s*o$i=77nufc8%zx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -28,9 +32,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'rest_framework',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Ensure this is first
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -41,6 +48,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mcore.urls'
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    
+]
 
 TEMPLATES = [
     {
@@ -72,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'testraf',       
         'USER': 'root',          
-        'PASSWORD': '123456',  
+        'PASSWORD': '',  
         'HOST': 'localhost',      
         'PORT': '3306',
         'OPTIONS': {

@@ -21,6 +21,15 @@ urlpatterns = [
     path('payments/<int:pk>/', PaymentRetrieve.as_view(), name='payment-retrieve'),
     path('payments/<int:pk>/update/', PaymentUpdate.as_view(), name='payment-update'),
     path('payments/<int:pk>/delete/', PaymentDestroy.as_view(), name='payment-delete'),
+
+
+    # User URLs
+    path('user/', UserList.as_view(), name='user-list'),
+    path('user/create/', UserCreate.as_view(), name='user-create'),
+    path('user/<int:pk>/', UserRetrieve.as_view(), name='user-retrieve'),
+    path('user/<int:pk>/update/', UserUpdate.as_view(), name='user-update'),
+    path('user/<int:pk>/delete/', UserDestroy.as_view(), name='user-delete'),
+
 ]
 
 
