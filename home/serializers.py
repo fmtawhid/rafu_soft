@@ -1,6 +1,4 @@
-#from django.views.decorators.csrf import csrf_exempt
-#from rest_framework.parsers import JSONParser
-#from django.http import HttpResponse, JsonResponse
+
 from rest_framework import serializers
 from .models import *
 
@@ -9,7 +7,6 @@ class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
         fields = '__all__'
-
 
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
